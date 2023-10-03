@@ -1,0 +1,32 @@
+#pseudocode for Instagram post
+Class InstagramPost:
+  
+    - private post_id: int
+    - private image_url: string
+    - private likes: int
+    - private comments: list of string
+
++ public constructor(user_id: int, image_url: string, caption: string)
+        - Set image_url to provided image_ur
+        - Set post_id (generate a unique identifier)
+        - Set likes to 0
+        - Set comments to an empty list
+
+    + public add_like()
+        - Increment the likes count by 1
+
+    + public add_comment(comment: string)
+        - Append the comment to the list of comments
+
+    + public get_post_id() -> int
+        - Return the post_id
+
+    + public get_image_url() -> string
+        - Return the image_url
+
+    + public get_likes() -> int
+        - Return the number of likes
+
+    + public get_comments() -> list of strings
+        - Return the list of comments
+
