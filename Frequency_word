@@ -1,0 +1,31 @@
+#count frequency words
+import re
+from collections import Counter
+
+#  To count word frequencies in a text file
+def count_frequency_word(file_path):
+    with open(file_path, 'r') as file:
+        text = file.read().lower()  
+        words = re.findall(r'\b\w+\b', text) 
+        word_counts = Counter(words) 
+        return word_counts
+if __name__ == "__main__":
+    file_path = "essay.txt"  
+    word_counts = count_frequency_word(file_path)
+    for word, count in word_counts.items():
+        print(f"{word}: {count}")
+
+
+
+example:
+ essay.txt:
+      This is a sample essay. This essay is for testing purposes
+Output : 
+this: 2
+is: 2
+a: 1
+sample: 1
+essay: 2
+for: 1
+testing: 1
+purposes: 1
