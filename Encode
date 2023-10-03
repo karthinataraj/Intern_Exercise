@@ -1,0 +1,32 @@
+#encode sentences 
+def encode_sentence(sentence, key):
+    words = sentence.split()  
+    encoded_words = []
+
+    for i, word in enumerate(words):
+        if i % 2 == 0:  
+            encoded_word = word[::-1]  
+        else:  
+            encoded_word = ''
+            for letter in word:
+                if letter.isalpha():
+                    shifted_char = chr(((ord(letter.lower()) - ord('a') + key) % 26) + ord('a'))
+                    encoded_word += shifted_char if letter.islower() else shifted_char.upper()
+                else:
+                    encoded_word += letter
+        encoded_words.append(encoded_word)
+
+    encoded_sentence = ' '.join(encoded_words)
+    return encoded_sentence
+
+input_sentence = input("Enter a sentence: ")
+key = int(input("Enter the encoding key (a number): "))
+
+encoded_result = encode_sentence(input_sentence, key)
+print("Encoded sentence:", encoded_result)
+
+
+output:
+Enter a sentence: my name is karthi
+Enter the encoding key (a number): 2
+Encoded sentence: ym ecaps is kooQ
